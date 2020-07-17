@@ -54,6 +54,21 @@
     <property name="password" value="testiaf_user00"/>
   </bean>
 
+  <bean id="jdbcFacade" class="nl.nn.adapterframework.jdbc.FixedQuerySender">
+  	<property name="proxiedDataSources" ref="proxiedDataSources" />
+  </bean>
+
+	<!-- Make the proxied data source available to the JdbcFacade -->
+	<bean id="proxiedDataSources" class="java.util.HashMap">
+		<constructor-arg>
+			<map>
+				<entry key="${jdbc.datasource.default}">
+					<ref bean="dataSource"/>
+				</entry>
+			</map>
+		</constructor-arg>
+	</bean>
+
   <!--
   Generated an error (running with jdk 1.5 and hsqldb 2.3.0): Error loading class [org.apache.commons.dbcp.BasicDataSource] for bean with name 'dataSource' defined in class path resource [springTEST.xml]: problem with class file or dependent class; nested exception is java.lang.UnsupportedClassVersionError: Bad version number in .class file
   <bean id="dataSource"
