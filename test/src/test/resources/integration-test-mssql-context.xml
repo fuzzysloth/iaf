@@ -56,13 +56,14 @@
 
   <bean id="jdbcFacade" class="nl.nn.adapterframework.jdbc.FixedQuerySender">
   	<property name="proxiedDataSources" ref="proxiedDataSources" />
+  	<property name="datasourceName" value="mssqlDataSource" />
   </bean>
 
 	<!-- Make the proxied data source available to the JdbcFacade -->
 	<bean id="proxiedDataSources" class="java.util.HashMap">
 		<constructor-arg>
 			<map>
-				<entry key="${jdbc.datasource.default}">
+				<entry key="mssqlDataSource">
 					<ref bean="dataSource"/>
 				</entry>
 			</map>

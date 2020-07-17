@@ -1,5 +1,7 @@
 package nl.nn.adapterframework.integration;
 
+import java.sql.Connection;
+
 import org.apache.logging.log4j.Logger;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -9,6 +11,8 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import nl.nn.adapterframework.jdbc.JdbcFacade;
+import nl.nn.adapterframework.jdbc.dbms.IDbmsSupport;
+import nl.nn.adapterframework.jdbc.dbms.IDbmsSupportFactory;
 import nl.nn.adapterframework.util.LogUtil;
 
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -22,6 +26,9 @@ public class MSSQLIntegrationTest {
 	
 	@Test
 	public void testOne() throws Exception {
+		final Connection connection = jdbcFacade.getConnection();
+		final IDbmsSupportFactory dbmsSupportFactory = jdbcFacade.getDbmsSupportFactory();
+		final IDbmsSupport dbmsSupport = dbmsSupportFactory.getDbmsSupport(connection);
 		LOG.info("jdbcFacade=", jdbcFacade);
 	}
 }
