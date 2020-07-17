@@ -165,5 +165,33 @@
 				</dependency>
 		 </dependencies>
 		</profile>
+		<profile>
+			<id>integration-test</id>
+			<activation>
+				<property>
+					<name>spring.profiles.active</name>
+					<value>integrationtest</value>
+				</property>
+			</activation>
+			<dependencies>
+				<dependency>
+					<groupId>com.microsoft.sqlserver</groupId>
+					<artifactId>mssql-jdbc</artifactId>
+					<version>8.2.2.jre8</version>
+				</dependency>
+				<dependency>
+					<groupId>junit</groupId>
+					<artifactId>junit</artifactId>
+					<version>4.12</version>
+					<scope>test</scope>
+				</dependency>
+				<dependency>
+					<groupId>org.mockito</groupId>
+					<artifactId>mockito-core</artifactId>
+					<version>2.24.5</version>
+					<scope>test</scope>
+				</dependency>
+			</dependencies>
+		</profile>
 	</profiles>
 </project>
