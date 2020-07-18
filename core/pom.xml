@@ -642,5 +642,14 @@
 				</dependency>
 			</dependencies>
 		</profile>
+		<profile>
+			<id>integration-test</id>
+			<activation>
+				<property>
+					<name>spring.profiles.active</name>
+					<value>integrationtest</value>
+				</property>
+			</activation>
+		</profile>
 	</profiles>
 </project>

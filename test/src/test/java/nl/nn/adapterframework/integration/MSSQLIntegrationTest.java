@@ -1,6 +1,7 @@
 package nl.nn.adapterframework.integration;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 
 import org.apache.logging.log4j.Logger;
 import org.junit.Test;
@@ -29,6 +30,9 @@ public class MSSQLIntegrationTest {
 		final Connection connection = jdbcFacade.getConnection();
 		final IDbmsSupportFactory dbmsSupportFactory = jdbcFacade.getDbmsSupportFactory();
 		final IDbmsSupport dbmsSupport = dbmsSupportFactory.getDbmsSupport(connection);
+		final String firstRecordQuery = dbmsSupport.getFirstRecordQuery("IBISPROP");
+		PreparedStatement prepareStatement = connection.prepareStatement(firstRecordQuery);
+		boolean execute = prepareStatement.execute();
 		LOG.info("jdbcFacade=", jdbcFacade);
 	}
 }

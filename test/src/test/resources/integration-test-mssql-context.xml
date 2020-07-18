@@ -70,6 +70,11 @@
 		</constructor-arg>
 	</bean>
 
+	<!--
+	<bean id="migrator" class="nl.nn.adapterframework.jdbc.migration.Migrator">
+		<property name=""/>
+	</bean>
+	-->
   <!--
   Generated an error (running with jdk 1.5 and hsqldb 2.3.0): Error loading class [org.apache.commons.dbcp.BasicDataSource] for bean with name 'dataSource' defined in class path resource [springTEST.xml]: problem with class file or dependent class; nested exception is java.lang.UnsupportedClassVersionError: Bad version number in .class file
   <bean id="dataSource"
